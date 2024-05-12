@@ -24,9 +24,6 @@ class HomePage extends Page {
     await super.scrollDown();
     await this.loginButton.click();
   }
-  async selectBackpack() {
-    await this.backpack.click();
-  }
 }
 
 export default new HomePage();

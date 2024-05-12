@@ -15,7 +15,7 @@ describe("E2E Testing login until checkout", () => {
     await expect(HomePage.homePageTitle).toHaveText("Products");
   });
   it("should add product to cart", async () => {
-    await HomePage.selectBackpack();
+    await HomePage.backpack.click();
     await expect(ProductPage.backpackPrice).toHaveText("$ 29.99");
     await ProductPage.addProductToCart();
     await expect(ProductPage.cartQuantity).toHaveText("2");

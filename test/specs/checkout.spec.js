@@ -1,24 +1,10 @@
 import { driver } from "@wdio/globals";
+import homePage from "../pageobjects/home.page.js";
 
 describe("E2E Testing login until checkout", () => {
-  it("should open login page", async () => {
-    //selector with accessibility id
-    await $("~View menu").click();
-    await driver.pause(500);
-    //scroll down
-    await driver
-      .action("pointer")
-      .move({ x: 250, y: 850 })
-      .down()
-      .pause(100)
-      .move({ x: 250, y: 500, duration: 200 })
-      .up()
-      .perform();
-    await $('//*[@text="Log In"]').click();
-    const loginPageTitle = await $(
-      "id=com.saucelabs.mydemoapp.android:id/loginTV"
-    );
-    await expect(loginPageTitle).toHaveText("Login");
+  it.only("should open login page", async () => {
+    await homePage.clickLoginButton();
+    await expect(homePage.loginPageTitle).toHaveText("Login");
   });
   it("should login with valid credentials", async () => {
     await $("id=com.saucelabs.mydemoapp.android:id/nameET").setValue(

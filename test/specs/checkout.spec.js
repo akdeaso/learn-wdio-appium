@@ -12,7 +12,7 @@ describe("E2E Testing login until checkout", () => {
   });
   it("should login with valid credentials", async () => {
     await LoginPage.login("bod@example.com", "10203040");
-    await expect(LoginPage.productPageTitle).toHaveText("Products");
+    await expect(HomePage.homePageTitle).toHaveText("Products");
   });
   it("should add product to cart", async () => {
     await HomePage.selectBackpack();

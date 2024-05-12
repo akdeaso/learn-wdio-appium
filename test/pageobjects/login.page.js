@@ -10,9 +10,6 @@ class LoginPage extends Page {
   get loginButton() {
     return $("id=com.saucelabs.mydemoapp.android:id/loginBtn");
   }
-  get productPageTitle() {
-    return $("id=com.saucelabs.mydemoapp.android:id/productTV");
-  }
 
   async login(email, password) {
     await this.inputEmail.setValue(email);

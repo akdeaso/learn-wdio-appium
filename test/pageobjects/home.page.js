@@ -1,7 +1,7 @@
 import Page from "./page.js";
 import { driver } from "@wdio/globals";
 
-class homePage extends Page {
+class HomePage extends Page {
   get viewMenu() {
     return $("~View menu");
   }
@@ -11,6 +11,12 @@ class homePage extends Page {
   get loginPageTitle() {
     return $("id=com.saucelabs.mydemoapp.android:id/loginTV");
   }
+  get backpack() {
+    return $("~Sauce Labs Backpack");
+  }
+  get homePageTitle() {
+    return $("id=com.saucelabs.mydemoapp.android:id/productTV");
+  }
 
   async clickLoginButton() {
     await this.viewMenu.click();
@@ -18,6 +24,9 @@ class homePage extends Page {
     await super.scrollDown();
     await this.loginButton.click();
   }
+  async selectBackpack() {
+    await this.backpack.click();
+  }
 }
 
-export default new homePage();
+export default new HomePage();
